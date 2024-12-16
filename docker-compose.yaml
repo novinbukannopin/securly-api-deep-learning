@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  api-dl-securly:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MODEL_PATH=/app/files/600-32.pth
+      - BERT_PATH=/app/files/charbert-bert-wiki/
+      - DEVICE=cpu
+    volumes:
+      - ./files:/app/files
+      - ./files/charbert-bert-wiki:/app/files/charbert-bert-wiki
+    restart: always

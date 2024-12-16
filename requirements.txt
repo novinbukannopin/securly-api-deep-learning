@@ -1,0 +1,8 @@
+torch
+flask
+numpy
+pytorch_pretrained_bert
+transformers
+flask_pydantic
+pydantic
+python-dotenv

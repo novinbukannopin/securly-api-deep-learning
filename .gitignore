@@ -1,0 +1,8 @@
+files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.env
+*.pth
