@@ -6,3 +6,4 @@ transformers
 flask_pydantic
 pydantic
 python-dotenv
+pandas
