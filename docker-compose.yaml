@@ -14,3 +14,8 @@ services:
       - ./files:/app/files
       - ./files/charbert-bert-wiki:/app/files/charbert-bert-wiki
     restart: always
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    restart: always
