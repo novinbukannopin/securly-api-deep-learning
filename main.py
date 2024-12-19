@@ -1,17 +1,19 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from core.limiter import LimiterService
 from app.routes import setup_routes
-from config import FLASK_ENV, CORS_ORIGINS_DEV, CORS_ORIGINS_PROD, PORT
+from config import FLASK_ENV, CORS_ORIGINS, PORT
 
 app = Flask(__name__)
 
-if FLASK_ENV == "development":
-    CORS_ORIGINS = CORS_ORIGINS_DEV
-elif FLASK_ENV == "production":
-    CORS_ORIGINS = CORS_ORIGINS_PROD
-else:
-    CORS_ORIGINS = ["*"]
+@app.errorhandler(429)
+def rate_limit_handler(e):
+    response = {
+        "error": "Too Many Requests",
+        "message": "You have exceeded the rate limit.",
+        "retry_after": "1 minute"
+    }
+    return jsonify(response), 429
 
 CORS(app, resources={
     r"/predict": {"origins": CORS_ORIGINS},
@@ -24,4 +26,4 @@ redis_client = limiter_service.get_redis_client()
 setup_routes(app, limiter, redis_client)
 
 if __name__ == "__main__":
-    app.run(debug=FLASK_ENV == "development", port=PORT)
+    app.run(debug=FLASK_ENV == "development", port=PORT, host="0.0.0.0")
