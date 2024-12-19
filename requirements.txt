@@ -1,4 +1,3 @@
-torch
 flask
 numpy
 pytorch_pretrained_bert
