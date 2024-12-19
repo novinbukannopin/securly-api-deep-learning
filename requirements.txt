@@ -6,3 +6,7 @@ transformers
 flask_pydantic
 pydantic
 python-dotenv
+pandas
+Flask-Limiter
+redis
+flask-cors

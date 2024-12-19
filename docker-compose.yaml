@@ -1,16 +1,28 @@
 version: "3.9"
+name: "securly-dl"
 services:
-  api-dl-securly:
+  api:
+    container_name: "dl-api"
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env.production
     ports:
-      - "5000:5000"
+      - "3002:3002"
     environment:
       - MODEL_PATH=/app/files/600-32.pth
       - BERT_PATH=/app/files/charbert-bert-wiki/
+      - BLOCKLIST_FILE=/app/files/negative.json
       - DEVICE=cpu
     volumes:
       - ./files:/app/files
       - ./files/charbert-bert-wiki:/app/files/charbert-bert-wiki
+      - ./files/negative.json:/app/files/negative.json
+    restart: always
+  redis:
+    container_name: "dl-redis"
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
     restart: always

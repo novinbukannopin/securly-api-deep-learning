@@ -2,7 +2,6 @@ FROM python:3.9-slim
 
 ENV PYTHONUNBUFFERED=1
 
-# Buat direktori kerja
 WORKDIR /app
 
 COPY requirements.txt /app/
