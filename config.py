@@ -9,5 +9,8 @@ BERT_PATH = os.getenv("BERT_PATH", "files/charbert-bert-wiki")
 VOCAB_FILE = os.getenv("VOCAB_FILE", "files/charbert-bert-wiki/vocab.txt")
 BLOCKLIST_FILE = os.getenv("BLOCKLIST_FILE", "files/blocklist.txt")
 
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+
 DEVICE = torch.device("cuda" if os.getenv("DEVICE", "cpu") == "cuda" and torch.cuda.is_available() else "cpu")
 
