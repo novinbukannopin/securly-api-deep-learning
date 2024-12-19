@@ -35,15 +35,22 @@ def predict_routes(bp, limiter, redis_client):
                 print("Cache hit")
                 return jsonify(cached_result), 200
 
-            if any(domain == blocked_domain or domain.endswith(f".{blocked_domain}") for blocked_domain in BLOCKLIST):
+            if any(
+                    blocked_domain.startswith("*.") and domain.endswith(blocked_domain[1:])
+                    or domain == blocked_domain
+                    or domain.endswith(f".{blocked_domain}")
+                    for blocked_domain in BLOCKLIST
+            ):
                 response = {
                     "status": "success",
                     "data": {
                         "url": url,
                         "prediction": "blocked",
-                        "reason": "URL matches a blocked domain"
+                        "reason": "URL matches a blocked domain",
+                        "score": 1.0
                     }
                 }
+
                 client.setex(cache_key, 300, json.dumps(response))
                 return jsonify(response), 200
 
@@ -57,6 +64,7 @@ def predict_routes(bp, limiter, redis_client):
                     "score": score
                 }
             }
+
             redis_client.setex(cache_key, 300, json.dumps(response))
             return jsonify(response), 200
 

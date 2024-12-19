@@ -14,3 +14,7 @@ REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 
 DEVICE = torch.device("cuda" if os.getenv("DEVICE", "cpu") == "cuda" and torch.cuda.is_available() else "cpu")
 
+FLASK_ENV = os.getenv("FLASK_ENV", "development")
+CORS_ORIGINS_DEV = os.getenv("CORS_ORIGINS_DEV", "http://localhost:3001")
+CORS_ORIGINS_PROD = os.getenv("CORS_ORIGINS_PROD", "")
+PORT = os.getenv("PORT", 5000)
