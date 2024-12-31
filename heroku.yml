@@ -10,5 +10,3 @@ release:
     - echo "Release phase tasks can be defined here, if needed."
 run:
   api: python app.py
-  redis:
-    image: redis:alpine
