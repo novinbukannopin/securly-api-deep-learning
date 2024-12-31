@@ -15,8 +15,10 @@ build:
     ENV: production
 
 release:
+  image: Dockerfile
   command:
-    - echo "Running release phase tasks (if any)."
+    - python
+    - main.py
 
 run:
   api: python main.py
