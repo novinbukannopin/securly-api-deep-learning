@@ -1,7 +1,3 @@
-setup:
-  addons:
-    - plan: heroku-redis
-      as: HEROKU-REDIS-PUCE
 build:
   docker:
     api: Dockerfile
@@ -9,4 +5,4 @@ release:
   command:
     - echo "Release phase tasks can be defined here, if needed."
 run:
-  api: python app.py
+  api: python main.py
