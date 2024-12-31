@@ -8,3 +8,5 @@ __pycache__/
 .env.production
 *.pth
 .cadence
+/files/negative.csv
+/files/trustpositifkominfo.csv
