@@ -16,7 +16,7 @@ def rate_limit_handler(e):
     return jsonify(response), 429
 
 CORS(app, resources={
-    r"/predict": {"origins": CORS_ORIGINS},
+    r"/predict": {"origins": [CORS_ORIGINS, "http://localhost:3000"]},
 }, allow_headers=["Content-Type", "Authorization"])
 
 limiter_service = LimiterService(app)
