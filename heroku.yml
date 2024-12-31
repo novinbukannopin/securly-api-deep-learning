@@ -1,5 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-redis
+      as: REDIS
 build:
   docker:
-    web: Dockerfile
+    api: Dockerfile
+release:
+  command:
+    - echo "Release phase tasks can be defined here, if needed."
 run:
-  web: bundle exec puma -C config/puma.rb
+  api: python app.py
+  redis:
+    image: redis:alpine
