@@ -11,14 +11,6 @@ setup:
 build:
   docker:
     api: Dockerfile
-  config:
-    ENV: production
-
-release:
-  image: Dockerfile
-  command:
-    - python
-    - main.py
 
 run:
-  api: python main.py
+  api: flask run --host=0.0.0.0 --port=3002

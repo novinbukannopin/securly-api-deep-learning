@@ -12,7 +12,7 @@ else:
 MODEL_PATH = os.getenv("MODEL_PATH", "files/600-32.pth")
 BERT_PATH = os.getenv("BERT_PATH", "files/charbert-bert-wiki")
 VOCAB_FILE = os.getenv("VOCAB_FILE", "files/charbert-bert-wiki/vocab.txt")
-BLOCKLIST_FILE = os.getenv("BLOCKLIST_FILE", "files/blocklist.txt")
+BLOCKLIST_FILE = os.getenv("BLOCKLIST_FILE", "files/negative.json")
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
