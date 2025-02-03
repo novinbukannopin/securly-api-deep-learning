@@ -1,9 +1,10 @@
-GET http://localhost:5000/health
+GET {{url}}/health
 
 ###
-POST http://localhost:5000/predict
+POST {{url}}/predict
 Content-Type: application/json
 
+
 {
-  "url": "https://forsgufetpo.ga/assets/2021/06/IMG_20210607_124358.jpg"
+  "url": "https://google.com"
 }

@@ -14,7 +14,7 @@ class LimiterService:
             self.redis_client.ping()
             print(f"Connected to Redis at {self.redis_host}:{self.redis_port}")
 
-            load_blocklist_to_redis(self.redis_client, BLOCKLIST_FILE)
+            # load_blocklist_to_redis(self.redis_client, BLOCKLIST_FILE)
 
         except Exception as e:
             raise RuntimeError(f"Failed to connect to Redis: {e}")

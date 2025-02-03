@@ -10,3 +10,4 @@ __pycache__/
 .cadence
 /files/negative.csv
 /files/trustpositifkominfo.csv
+ngrok.yml
