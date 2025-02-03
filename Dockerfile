@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY requirements.txt /app/
 
-RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir torch==1.9.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 RUN pip install --no-cache-dir -r requirements.txt
 
