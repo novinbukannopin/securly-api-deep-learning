@@ -8,3 +8,11 @@ Content-Type: application/json
 {
   "url": "https://google.com"
 }
+
+
+###
+POST {{url}}/batch_predict
+Content-Type: multipart/form-data
+
+
+
