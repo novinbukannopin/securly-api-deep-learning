@@ -11,3 +11,5 @@ __pycache__/
 /files/negative.csv
 /files/trustpositifkominfo.csv
 ngrok.yml
+balanced_urls.csv
+batch_upload.log
