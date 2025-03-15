@@ -9,10 +9,22 @@ if FLASK_ENV == "production":
 else:
     load_dotenv(".env.development")
 
-MODEL_PATH = os.getenv("MODEL_PATH", "files/600-32.pth")
+UINSA_MODEL_PATH = os.getenv("UINSA_MODEL_PATH", "files/uinsa.pth")
+KAGGLE_MODEL_PATH = os.getenv("KAGGLE_MODEL_PATH", "files/600-32.pth")
 BERT_PATH = os.getenv("BERT_PATH", "files/charbert-bert-wiki")
 VOCAB_FILE = os.getenv("VOCAB_FILE", "files/charbert-bert-wiki/vocab.txt")
-BLOCKLIST_FILE = os.getenv("BLOCKLIST_FILE", "files/blocklist.txt")
+BLOCKLIST_FILE = os.getenv("BLOCKLIST_FILE", "files/negative.json")
+
+# MODEL_CONFIGS = {
+#     "uinsa-base": {
+#         "model_path": os.getenv("UINSA_MODEL_PATH", "files/uinsa.pth"),
+#         "vocab_file": os.getenv("VOCAB_FILE", "files/charbert-bert-wiki/vocab.txt"),
+#     },
+#     "kaggle-base": {
+#         "model_path": os.getenv("KAGGLE_MODEL_PATH", "files/600-32.pth"),
+#         "vocab_file": os.getenv("VOCAB_FILE", "files/charbert-bert-wiki/vocab.txt")
+#     }
+# }
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))

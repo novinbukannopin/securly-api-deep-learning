@@ -4,10 +4,10 @@ GET {{url}}/health
 POST {{url}}/predict
 Content-Type: application/json
 
-
 {
-  "url": "https://google.com"
+  "url": "https://reddit.com"
 }
+
 
 
 ###
